@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+$theme_color_items: rgb(7, 40, 78);
+$link_color: rgb(93, 248, 88);
+$article_background: rgba(82, 107, 82, 0.863);
+$general_text: rgb(1, 238, 255);
+
+
+//mixin for setting background-color
+@mixin background($color){
+    background-color: $color;
+}

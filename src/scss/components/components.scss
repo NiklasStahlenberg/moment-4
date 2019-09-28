@@ -1,0 +1,201 @@
+@import '../base/base';
+//navigation styling
+.main_nav{
+    display: inline-block;         
+    ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;        
+        li{
+            float:left;            
+            a{
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                margin: 3px;
+                border: 1px solid black;
+                width: 75px;
+                height: 20px;
+                color: $link_color;
+                background: $theme_color_items;                            
+            }
+            a:hover{
+                background: lighten($color: $theme_color_items, $amount: 40);
+            } 
+            a:active{
+                background: darken($color: $theme_color_items, $amount: 25);
+            }            
+        }
+    }
+}
+
+//hedear styling
+.header{
+    border-bottom: 2px solid $theme_color_items;
+    margin: 0 auto;
+    h1{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: $theme_color_items;
+    }
+}
+
+//setting image-size for everything in grid-container
+.grid_container{
+    img{
+        max-width: 150px;
+    }
+}
+
+//base_structure for articles
+%background_articles{ 
+    @include background($article_background);   
+    width: 75%;           
+}
+
+.newsfeed {
+    @extend %background_articles;    
+}
+
+//base structure for aside content
+%aside_styling{    
+    border-bottom: 1px solid $theme_color_items;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.side_content{
+    @extend %background_articles;       
+    h2{
+        @extend %aside_styling;
+        color: $theme_color_items;
+        margin-bottom: 5px;        
+    } 
+    section{ 
+        @extend %aside_styling;       
+        padding-bottom: 5px;  
+        color: $general_text;      
+    }   
+}
+
+//for-loop generating different style articles
+@for $index from 1 through 2{
+    .news_article_#{$index}{
+        @if $index == 1 {            
+            p{
+                color: $theme_color_items;
+            }   
+        }@else{
+            p{
+            color: $link_color;
+            }
+        }
+        border-bottom: 1px solid $theme_color_items;
+        margin-bottom: 5px;
+        img{
+            margin-top: 5px;
+        }
+    }
+}
+
+//setting text color for page
+p, h2{
+    color: $general_text;
+}
+
+//styling footer
+.footer{
+    border-top: 2px solid $theme_color_items;    
+    width: 90%;
+    margin: 0 auto; 
+    background-color: $article_background;   
+}
+
+//background-image
+.bg{
+    position: fixed;
+    top: 0;
+    left: 0; 
+    min-width: 100%;
+    max-width: 1280px;
+    min-height: 100%;
+    z-index: -1;    
+}
+
+//tablet size
+@media screen and (min-width: 500px) and (max-width:  1000px){
+    %background_articles{    
+        width: 90%;
+        background-color: $article_background;   
+    }
+}
+
+//mobile size
+@media screen and (max-width: 500px){
+
+    %background_articles{    
+        width: 90%;
+        background-color: $article_background;   
+    }
+
+    /*Dropdown menu styling*/
+    li{
+        list-style: none;
+    }
+    
+    .hamburger_menu{
+        width: 20px;
+        height: 16px;   
+    }
+    
+    .dropdownbtn{ 
+        border: none;
+        background: none;        
+        padding: 0;    
+        margin: 0 auto;   
+        display: block;
+    }
+    
+    .dropdownbtn:hover, .nav_list li:hover{
+        background-color:lightblue;
+    }
+    
+    .main_nav:hover .nav_list{
+        display: block;
+    }
+    
+    .nav_list li{       
+        height: 20px;
+        width: 100%;          
+    }
+    
+    .nav_list li a{ 
+        font-size: 12px;   
+        display: block;
+        width: 100%;
+        text-decoration: none;
+    }
+    
+    .nav_list {    
+        text-align: center; 
+        width: 300px;    
+        display: none;  
+    }
+    
+    .nav_items a {
+        width: 300px;
+    }
+    
+    .main_nav {
+        ul{
+            li{
+                a{
+                    display: block;
+                    width: 300px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+
+}

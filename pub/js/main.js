@@ -1,0 +1,1 @@
+console.log("testar 1 javascriptfil!"),document.getElementById("text").innerHTML+=" lite mer text",console.log("testar en till js-fil!");
