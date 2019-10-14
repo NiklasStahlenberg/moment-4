@@ -9,9 +9,12 @@
   "author": "Niklas Ståhlenberg",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
     "browser-sync": "^2.26.7",
     "concat": "^1.0.3",
     "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0-beta.2",
     "gulp-concat": "^2.6.1",
     "gulp-livereload": "^4.0.2",
     "gulp-sass": "^4.0.2",

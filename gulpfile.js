@@ -6,6 +6,7 @@ const browsersync = require('browser-sync');
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 const sourcemaps = require('gulp-sourcemaps');
+const babel = require('gulp-babel');
 
 //The filepaths i use in the project
 const files = {
@@ -33,9 +34,12 @@ function scssTask(){
 
 //task for concating and minifying js files and then put them in pub/js
 function jsTask(){
-    return src(files.jsPath)           
-        .pipe(concat('main.js')) 
-        .pipe(terser())   
+    return src(files.jsPath)  
+        .pipe(sourcemaps.init())
+        .pipe(babel())         
+        .pipe(concat('main.js'))
+        .pipe(terser())
+        .pipe(sourcemaps.write())           
         .pipe(dest('pub/js'))           
 }
 

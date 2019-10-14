@@ -1,3 +1,9 @@
-console.log("testar 1 javascriptfil!")
+console.log("testar 1 javascriptfil!");
 
-document.getElementById('text').innerHTML += ' lite mer text';
+
+let a = 56;
+
+
+let a_2 = (a) => a * a;
+
+console.log(a_2(a));
