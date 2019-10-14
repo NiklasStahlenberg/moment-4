@@ -1,3 +1,3 @@
-# Moment 3, sass
+# Moment 4, Ecma & typescript
 
-### Hemsida gjord med sass
+### Lagt till support för Ecmascript transpiling med Babel
